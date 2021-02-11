@@ -16,5 +16,6 @@ import java.util.EnumSet
  * Function to obtain an empty bitfield for a certain flag type
  * @return empty bitfield
  */
+@Suppress("unused")
 inline fun <reified T> Flags<*, T>.none(): EnumSet<T>
   where T : Flag<*>, T : Enum<T> = EnumSet.noneOf(T::class.java)

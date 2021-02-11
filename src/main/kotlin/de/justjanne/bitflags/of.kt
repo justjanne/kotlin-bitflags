@@ -17,6 +17,7 @@ import kotlin.experimental.and
  * Construct a bitfield out of discrete flags
  * @return bitfield
  */
+@Suppress("unused")
 inline fun <reified T> Flags<*, T>.of(vararg values: T): EnumSet<T>
   where T : Flag<*>, T : Enum<T> = values.toEnumSet()
 
@@ -24,6 +25,7 @@ inline fun <reified T> Flags<*, T>.of(vararg values: T): EnumSet<T>
  * Construct a bitfield out of a collection of flags
  * @return bitfield
  */
+@Suppress("unused")
 inline fun <reified T> Flags<*, T>.of(values: Collection<T>): EnumSet<T>
   where T : Flag<*>, T : Enum<T> = values.toEnumSet()
 
