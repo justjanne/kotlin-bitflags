@@ -7,11 +7,13 @@ cache:
 
 before_script:
   - "export GRADLE_USER_HOME=$(pwd)/.gradle"
+  - "echo $SIGNING_secretKey | base64 -d > $GRADLE_USER_HOME/sonatype_upload.gpg"
   - "chmod +x ./gradlew"
 
 stages:
   - "build"
   - "test"
+  - "release"
 
 build:
   stage: "build"
@@ -34,3 +36,13 @@ test:
         - "*/build/reports/*.xml"
   except:
     - "tags"
+
+release:
+  stage: "release"
+  script:
+    - "./gradlew publish"
+  artifacts:
+    paths:
+      - "*/build/libs/*"
+#  only:
+#    - "tags"
