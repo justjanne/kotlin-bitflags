@@ -28,12 +28,10 @@ test:
     - "./gradlew check --stacktrace"
   artifacts:
     paths:
-      - "*/build/test-results/**/TEST-*.xml"
-      - "*/build/reports/*.xml"
+      - "build/test-results/**/TEST-*.xml"
     reports:
       junit:
-        - "*/build/test-results/**/TEST-*.xml"
-        - "*/build/reports/*.xml"
+        - "build/test-results/**/TEST-*.xml"
   except:
     - "tags"
 
