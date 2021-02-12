@@ -6,7 +6,7 @@ cache:
     - ".gradle/caches"
 
 before_script:
-  - "mkdir -p $(pwd).gradle"
+  - "mkdir -p $(pwd)/.gradle"
   - "export GRADLE_USER_HOME=$(pwd)/.gradle"
   - "echo $SIGNING_properties | base64 -d > .gradle/gradle.properties"
   - "echo $SIGNING_secretKey | base64 -d > .gradle/sonatype_upload.gpg"
