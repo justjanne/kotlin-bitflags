@@ -42,6 +42,6 @@ release:
     - "./gradlew publish"
   artifacts:
     paths:
-      - "*/build/libs/*"
-#  only:
-#    - "tags"
+      - "build/libs/*"
+  only:
+    - "tags"
