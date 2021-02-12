@@ -15,7 +15,6 @@ plugins {
   id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
   id("org.jetbrains.dokka") version "1.4.20"
   id("maven-publish")
-  id("jacoco")
   id("com.vanniktech.maven.publish") version "0.13.0"
 }
 
@@ -48,20 +47,6 @@ dependencies {
 
 tasks.test {
   useJUnitPlatform()
-}
-
-jacoco {
-  toolVersion = "0.8.3"
-}
-
-tasks.getByName<JacocoReport>("jacocoTestReport") {
-  reports {
-    sourceDirectories.from(fileTree("src/main/kotlin"))
-    xml.destination = File("$buildDir/reports/jacoco/report.xml")
-    html.isEnabled = true
-    xml.isEnabled = true
-    csv.isEnabled = false
-  }
 }
 
 tasks.withType<KotlinCompile> {
